@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StyleKart - Cart</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f8f8f8;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #222;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 17px;
+        }
+
+        nav a:hover {
+            color: #ff6b81;
+        }
+
+        /* Page */
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Cart Item */
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 20px 0;
+        }
+
+        .cart-item h3 {
+            margin: 0;
+        }
+
+        .cart-item p {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .remove-btn {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .remove-btn:hover {
+            background-color: #d93636;
+        }
+
+        /* Total */
+        .total {
+            text-align: right;
+            margin-top: 30px;
+        }
+
+        .total h2 {
+            margin-bottom: 20px;
+        }
+
+        .order-btn {
+            background-color: #222;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .order-btn:hover {
+            background-color: #ff6b81;
+        }
+
+        /* Empty Cart */
+        .empty-cart {
+            text-align: center;
+            padding: 40px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart 🛒</a>
+    </nav>
+
+    <!-- Cart Container -->
+    <div class="container">
+
+        <h1>Shopping Cart</h1>
+
+        <div id="cartItems"></div>
+
+        <div class="total">
+            <h2>Total: ₹<span id="totalPrice">0</span></h2>
+
+            <button class="order-btn" onclick="placeOrder()">
+                Place Order
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+
+        // Get cart data from LocalStorage
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Display cart items
+        function displayCart() {
+
+            const cartItems = document.getElementById("cartItems");
+            const totalPrice = document.getElementById("totalPrice");
+
+            cartItems.innerHTML = "";
+
+            // If cart is empty
+            if (cart.length === 0) {
+
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <h2>Your cart is empty</h2>
+                        <p>Add some products to your cart.</p>
+                    </div>
+                `;
+
+                totalPrice.textContent = "0";
+                return;
+            }
+
+            let total = 0;
+
+            // Display every product
+            cart.forEach(function(item, index) {
+
+                total = total + Number(item.price);
+
+                cartItems.innerHTML += `
+                    <div class="cart-item">
+
+                        <div>
+                            <h3>${item.name}</h3>
+                            <p>Price: ₹${item.price}</p>
+                        </div>
+
+                        <button class="remove-btn"
+                            onclick="removeItem(${index})">
+                            Remove
+                        </button>
+
+                    </div>
+                `;
+            });
+
+            totalPrice.textContent = total;
+        }
+
+
+        // Remove product from cart
+        function removeItem(index) {
+
+            cart.splice(index, 1);
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            displayCart();
+        }
+
+
+        // Place order
+        function placeOrder() {
+
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            alert("Order placed successfully!");
+
+            // Clear cart after placing order
+            localStorage.removeItem("cart");
+
+            cart = [];
+
+            displayCart();
+        }
+
+
+        // Display cart when page loads
+        displayCart();
+
+    </script>
+
+</body>
+</html>

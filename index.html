@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StyleKart - Fashion Store</title>
+
+    <style>
+        /* ---------- BASIC STYLING ---------- */
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #222;
+        }
+
+
+        /* ---------- NAVBAR ---------- */
+
+        nav {
+            background-color: #222;
+            padding: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav .links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        nav .links a:hover {
+            color: #ff4081;
+        }
+
+
+        /* ---------- HERO SECTION ---------- */
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #ffe4ec;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .shop-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 28px;
+            background-color: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .shop-button:hover {
+            background-color: #444;
+        }
+
+
+        /* ---------- FEATURED PRODUCTS ---------- */
+
+        .featured {
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        .featured h2 {
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .products {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            background-color: white;
+            width: 220px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .price {
+            color: #e91e63;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- ---------- NAVIGATION BAR ---------- -->
+
+    <nav>
+
+        <div class="logo">
+            StyleKart
+        </div>
+
+        <div class="links">
+
+            <a href="index.html">Home</a>
+
+            <a href="products.html">Products</a>
+
+            <a href="product-details.html?product=tshirt">
+                Details
+            </a>
+
+            <a href="cart.html">
+                Cart 🛒
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ---------- HERO SECTION ---------- -->
+
+    <section class="hero">
+
+        <h1>Style Your Way</h1>
+
+        <p>
+            Discover stylish clothing, footwear and accessories
+            at affordable prices with StyleKart.
+        </p>
+
+        <a href="products.html" class="shop-button">
+            Shop Now
+        </a>
+
+    </section>
+
+
+    <!-- ---------- FEATURED PRODUCTS ---------- -->
+
+    <section class="featured">
+
+        <h2>Featured Products</h2>
+
+        <div class="products">
+
+
+            <!-- T-SHIRT -->
+
+            <div class="product-card">
+
+                <img src="images/tshirt.jpg"
+                     alt="Classic T-Shirt">
+
+                <h3>
+                    <a href="product-details.html?product=tshirt">
+                        Classic T-Shirt
+                    </a>
+                </h3>
+
+                <p class="price">
+                    ₹599
+                </p>
+
+            </div>
+
+
+            <!-- JEANS -->
+
+            <div class="product-card">
+
+                <img src="images/jeans.jpg"
+                     alt="Denim Jeans">
+
+                <h3>
+                    <a href="product-details.html?product=jeans">
+                        Denim Jeans
+                    </a>
+                </h3>
+
+                <p class="price">
+                    ₹1,299
+                </p>
+
+            </div>
+
+
+            <!-- SNEAKERS -->
+
+            <div class="product-card">
+
+                <img src="images/sneakers.jpg"
+                     alt="Casual Sneakers">
+
+                <h3>
+                    <a href="product-details.html?product=sneakers">
+                        Casual Sneakers
+                    </a>
+                </h3>
+
+                <p class="price">
+                    ₹1,799
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ---------- FOOTER ---------- -->
+
+    <footer>
+
+        <p>
+            © 2026 StyleKart | Fashion Made Simple
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

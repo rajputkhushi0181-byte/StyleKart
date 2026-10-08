@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Products - StyleKart</title>
+
+    <style>
+        /* ---------- BASIC ---------- */
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #222;
+        }
+
+
+        /* ---------- NAVBAR ---------- */
+
+        nav {
+            background-color: #222;
+            padding: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav .links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        nav .links a:hover {
+            color: #ff4081;
+        }
+
+
+        /* ---------- PAGE TITLE ---------- */
+
+        .page-title {
+            text-align: center;
+            padding: 35px 20px 15px;
+        }
+
+        .page-title h1 {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .page-title p {
+            color: #666;
+        }
+
+
+        /* ---------- SEARCH ---------- */
+
+        .search-area {
+            text-align: center;
+            margin: 20px;
+        }
+
+        #searchBox {
+            width: 60%;
+            max-width: 500px;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+
+        /* ---------- CATEGORY BUTTONS ---------- */
+
+        .categories {
+            text-align: center;
+            margin: 25px;
+        }
+
+        .category-button {
+            padding: 10px 18px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #222;
+            color: white;
+            cursor: pointer;
+        }
+
+        .category-button:hover {
+            background-color: #ff4081;
+        }
+
+
+        /* ---------- PRODUCTS ---------- */
+
+        .products-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            padding: 20px 30px 50px;
+        }
+
+        .product {
+            width: 230px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product h3 {
+            margin: 15px 0 8px;
+        }
+
+        .product h3 a {
+            color: #222;
+            text-decoration: none;
+        }
+
+        .product h3 a:hover {
+            color: #e91e63;
+        }
+
+        .price {
+            color: #e91e63;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .add-button {
+            background-color: #222;
+            color: white;
+            border: none;
+            padding: 11px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        .add-button:hover {
+            background-color: #444;
+        }
+
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 18px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ---------- NAVBAR ---------- -->
+
+    <nav>
+
+        <div class="logo">
+            StyleKart
+        </div>
+
+        <div class="links">
+
+            <a href="index.html">Home</a>
+
+            <a href="products.html">Products</a>
+
+            <a href="cart.html">Cart 🛒</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ---------- PAGE TITLE ---------- -->
+
+    <section class="page-title">
+
+        <h1>Our Products</h1>
+
+        <p>Find your perfect style at StyleKart.</p>
+
+    </section>
+
+
+    <!-- ---------- SEARCH ---------- -->
+
+    <div class="search-area">
+
+        <input
+            type="text"
+            id="searchBox"
+            placeholder="Search for a product..."
+        >
+
+    </div>
+
+
+    <!-- ---------- CATEGORIES ---------- -->
+
+    <div class="categories">
+
+        <button class="category-button"
+                onclick="filterProducts('all')">
+            All
+        </button>
+
+        <button class="category-button"
+                onclick="filterProducts('Clothing')">
+            Clothing
+        </button>
+
+        <button class="category-button"
+                onclick="filterProducts('Footwear')">
+            Footwear
+        </button>
+
+        <button class="category-button"
+                onclick="filterProducts('Accessories')">
+            Accessories
+        </button>
+
+    </div>
+
+
+    <!-- ---------- PRODUCTS ---------- -->
+
+    <div class="products-container">
+
+
+        <!-- T-SHIRT -->
+
+        <div class="product" data-category="Clothing">
+
+           
+    <img src="images/tshirt.jpg" alt="Classic T-Shirt">
+  
+
+            <h3>
+                <a href="product-details.html?product=tshirt">
+                    Classic T-Shirt
+                </a>
+            </h3>
+
+            <p class="price">₹599</p>
+
+            <button class="add-button"
+                    onclick="addToCart('Classic T-Shirt', 599)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- JEANS -->
+
+        <div class="product" data-category="Clothing">
+
+            <img src="images/jeans.jpg" alt="Denim Jeans">
+
+            <h3>
+                <a href="product-details.html?product=jeans">
+                    Denim Jeans
+                </a>
+            </h3>
+
+            <p class="price">₹1,299</p>
+
+            <button class="add-button"
+                    onclick="addToCart('Denim Jeans', 1299)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- SNEAKERS -->
+
+        <div class="product" data-category="Footwear">
+
+           <img src="images/sneakers.jpg" alt="Casual Sneakers">
+
+            <h3>
+                <a href="product-details.html?product=sneakers">
+                    Casual Sneakers
+                </a>
+            </h3>
+
+            <p class="price">₹1,799</p>
+
+            <button class="add-button"
+                    onclick="addToCart('Casual Sneakers', 1799)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- HANDBAG -->
+
+        <div class="product" data-category="Accessories">
+
+  <img src="images/handbag.jpg" alt="Classic Handbag">
+
+            <h3>
+                <a href="product-details.html?product=handbag">
+                    Classic Handbag
+                </a>
+            </h3>
+
+            <p class="price">₹999</p>
+
+            <button class="add-button"
+                    onclick="addToCart('Classic Handbag', 999)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ---------- FOOTER ---------- -->
+
+    <footer>
+
+        <p>© 2026 StyleKart | Fashion Made Simple</p>
+
+    </footer>
+
+
+    <!-- ---------- JAVASCRIPT ---------- -->
+
+    <script>
+
+
+        /* ---------- ADD TO CART ---------- */
+
+        function addToCart(name, price) {
+
+            let cart =
+                JSON.parse(localStorage.getItem("cart")) || [];
+
+            cart.push({
+                name: name,
+                price: price
+            });
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
+
+            alert(name + " added to cart!");
+        }
+
+
+        /* ---------- SEARCH ---------- */
+
+        const searchBox =
+            document.getElementById("searchBox");
+
+        const products =
+            document.querySelectorAll(".product");
+
+
+        searchBox.addEventListener("keyup", function() {
+
+            const searchText =
+                searchBox.value.toLowerCase();
+
+            products.forEach(function(product) {
+
+                const productName =
+                    product.querySelector("h3")
+                    .textContent
+                    .toLowerCase();
+
+                if (productName.includes(searchText)) {
+
+                    product.style.display = "block";
+
+                } else {
+
+                    product.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+
+        /* ---------- CATEGORY FILTER ---------- */
+
+        function filterProducts(category) {
+
+            products.forEach(function(product) {
+
+                const productCategory =
+                    product.getAttribute("data-category");
+
+                if (
+                    category === "all" ||
+                    productCategory === category
+                ) {
+
+                    product.style.display = "block";
+
+                } else {
+
+                    product.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

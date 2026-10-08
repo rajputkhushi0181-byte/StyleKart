@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Details - StyleKart</title>
+
+    <style>
+
+        /* ---------- BASIC ---------- */
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #222;
+        }
+
+
+        /* ---------- NAVBAR ---------- */
+
+        nav {
+            background-color: #222;
+            padding: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav .links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        nav .links a:hover {
+            color: #ff4081;
+        }
+
+
+        /* ---------- PRODUCT DETAILS ---------- */
+
+        .details-container {
+            width: 70%;
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .details-container h1 {
+            font-size: 32px;
+            margin-top: 25px;
+        }
+
+        .price {
+            color: #e91e63;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .description {
+            color: #555;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .info {
+            margin: 12px;
+            font-size: 16px;
+        }
+
+        .add-button {
+            background-color: #222;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        .add-button:hover {
+            background-color: #444;
+        }
+
+
+        /* ---------- BACK BUTTON ---------- */
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            color: #222;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            color: #e91e63;
+        }
+
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 30px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ---------- NAVBAR ---------- -->
+
+    <nav>
+
+        <div class="logo">
+            StyleKart
+        </div>
+
+        <div class="links">
+
+            <a href="index.html">Home</a>
+
+            <a href="products.html">Products</a>
+
+            <a href="cart.html">Cart 🛒</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ---------- PRODUCT DETAILS ---------- -->
+
+    <div class="details-container">
+
+        <img
+            id="productImage"
+            class="product-image"
+            src="https://via.placeholder.com/280"
+            alt="Product"
+        >
+
+
+        <h1 id="productName">
+            Product Name
+        </h1>
+
+
+        <p
+            id="productPrice"
+            class="price">
+            ₹0
+        </p>
+
+
+        <p class="info">
+
+            <strong>Category:</strong>
+
+            <span id="productCategory"></span>
+
+        </p>
+
+
+        <p
+            id="productDescription"
+            class="description">
+        </p>
+
+
+        <p class="info">
+
+            <strong>Available Sizes:</strong>
+
+            <span id="productSize"></span>
+
+        </p>
+
+
+        <p class="info">
+
+            <strong>Availability:</strong>
+
+            <span id="productAvailability">
+                In Stock
+            </span>
+
+        </p>
+
+
+        <button
+            id="addButton"
+            class="add-button">
+
+            Add to Cart
+
+        </button>
+
+
+        <br>
+
+
+        <a
+            href="products.html"
+            class="back-button">
+
+            ← Back to Products
+
+        </a>
+
+    </div>
+
+
+    <!-- ---------- FOOTER ---------- -->
+
+    <footer>
+
+        <p>
+            © 2026 StyleKart | Fashion Made Simple
+        </p>
+
+    </footer>
+
+
+    <!-- ---------- JAVASCRIPT ---------- -->
+
+    <script>
+
+
+        /* ---------- PRODUCT DATA ---------- */
+
+        const products = {
+
+            tshirt: {
+
+                name: "Classic T-Shirt",
+
+                price: 599,
+
+                category: "Clothing",
+                image: "images/tshirt.jpg",
+
+                description:
+                    "A comfortable and stylish classic T-shirt suitable for everyday casual wear.",
+
+                size: "S, M, L, XL"
+
+            },
+
+
+            jeans: {
+
+                name: "Denim Jeans",
+
+                price: 1299,
+
+                category: "Clothing",
+                image: "images/jeans.jpg",
+
+                description:
+                    "Stylish and comfortable denim jeans suitable for casual and everyday wear.",
+
+                size: "S, M, L, XL"
+
+            },
+
+
+            sneakers: {
+
+                name: "Casual Sneakers",
+
+                price: 1799,
+
+                category: "Footwear",
+                image: "images/sneakers.jpg",
+
+                description:
+                    "Comfortable casual sneakers designed for everyday walking and casual outfits.",
+
+                size: "6, 7, 8, 9, 10"
+
+            },
+
+
+            handbag: {
+
+                name: "Classic Handbag",
+
+                price: 999,
+
+                category: "Accessories",
+                image: "images/handbag.jpg",
+
+                description:
+                    "A simple and elegant handbag suitable for everyday use.",
+
+                size: "Standard"
+
+            }
+
+        };
+
+
+        /* ---------- GET PRODUCT FROM URL ---------- */
+
+        const urlParams =
+            new URLSearchParams(window.location.search);
+
+        const productType =
+            urlParams.get("product");
+
+        const product =
+            products[productType];
+
+
+        /* ---------- DISPLAY PRODUCT ---------- */
+
+        if (product) {
+
+            document.getElementById("productName")
+                .textContent = product.name;
+
+
+            document.getElementById("productPrice")
+                .textContent = "₹" + product.price;
+
+
+            document.getElementById("productCategory")
+                .textContent = product.category;
+            
+            document.getElementById("productImage")
+            	.src = product.image;
+
+
+            document.getElementById("productDescription")
+                .textContent = product.description;
+
+
+            document.getElementById("productSize")
+                .textContent = product.size;
+
+
+            document.getElementById("addButton")
+                .onclick = function() {
+
+
+                    /* Get existing cart */
+
+                    let cart =
+                        JSON.parse(
+                            localStorage.getItem("cart")
+                        ) || [];
+
+
+                    /* Add selected product */
+
+                    cart.push({
+
+                        name: product.name,
+
+                        price: product.price
+
+                    });
+
+
+                    /* Save cart */
+
+                    localStorage.setItem(
+                        "cart",
+                        JSON.stringify(cart)
+                    );
+
+
+                    alert(
+                        product.name +
+                        " added to cart!"
+                    );
+
+                };
+
+        }
+
+    </script>
+
+</body>
+
+</html>
